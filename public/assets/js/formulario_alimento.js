@@ -21,7 +21,7 @@ $('#cadAlimento').on('submit', function(e){
             });  
 
             setTimeout(() => {
-                window.location.href = 'listar_alimentos'
+                window.location.href = '/listar_alimentos'
             }, 2000);
         },
         error: function(xhr) {
@@ -47,9 +47,9 @@ $('#editAlimento').on('submit', function(e){
     }
 
     $.ajax({
-        uri: window.location.origin + '/api/atualizarAlimento',
+        url: window.location.origin + '/api/atualizarAlimento',
         method: 'POST',
-        data: data, //data
+        data: data,
         success: function() {
             Swal.fire({
                 icon: 'success',
@@ -60,7 +60,7 @@ $('#editAlimento').on('submit', function(e){
             });  
 
             setTimeout(() => {
-                window.location.href = 'listar_alimentos'
+                window.location.href = '/listar_alimentos'
             }, 2000);
         },
         error: function(xhr) {
@@ -76,7 +76,7 @@ $('#editAlimento').on('submit', function(e){
 })
 
 function voltarParaLista() {
-    window.location.href = 'listar_alimentos'
+    window.location.href = '/listar_alimentos'
 }
 
 $(document).ready(function() {  

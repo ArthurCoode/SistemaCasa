@@ -67,6 +67,7 @@ class AlimentosController extends Controller
 
             $alimento = Alimentos::find($id);
 
+            
             if (!$alimento) {
                 return response()->json(["message" => "Alimento não encontrado"], 404);
             }

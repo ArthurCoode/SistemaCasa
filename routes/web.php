@@ -23,5 +23,10 @@ Route::get('cadastrar_alimentos', function() {
 
 Route::get('editar_alimentos/{id}', function($id) {
     $alimento = Alimentos::find($id);
-    return view('alimentos.editar_alimentos');
+
+    if (!$alimento) {
+        abort(404, 'Alimento não encontrado');
+    }
+
+    return view('alimentos.editar_alimentos', compact('alimento'));
 })->name('editar_alimentos');
