@@ -37,7 +37,7 @@ class AlimentosController extends Controller
                 ]
             );
 
-            $alimento = Alimentos::create($request->all());
+            $alimento = Alimentos::create($request->validated());
 
             return response()->json([
                 'message' => 'Alimento cadastrado com sucesso',
@@ -86,7 +86,7 @@ class AlimentosController extends Controller
         }
     }
 
-    public function deletarAlimento(Request $request, $id)
+    public function deletarAlimento($id)
     {
 
         try {
@@ -102,7 +102,7 @@ class AlimentosController extends Controller
             return response()->json([
                 'message' => 'Alimento deletado com sucesso',
                 'data' => $alimento
-            ], 201);
+            ], 200);
             
         } catch (Exception $e) {
             return response()->json([
